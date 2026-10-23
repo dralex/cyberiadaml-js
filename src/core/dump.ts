@@ -244,6 +244,15 @@ function putLink(out: Writer, depth: number, link: CommentLink): void {
     line += ` chunk ${quote(link.chunk)}`;
   }
   out.put(depth, line);
+  if (link.polyline.length) {
+    out.put(depth + 1, `polyline: ${link.polyline.map(geometryText).join(' ')}`);
+  }
+  if (link.sourcePoint !== null) {
+    out.put(depth + 1, `source-point: ${geometryText(link.sourcePoint)}`);
+  }
+  if (link.targetPoint !== null) {
+    out.put(depth + 1, `target-point: ${geometryText(link.targetPoint)}`);
+  }
 }
 
 /** Render the canonical dump of a validated document model. */

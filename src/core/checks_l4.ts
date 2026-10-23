@@ -627,6 +627,65 @@ rule(
           }
         }
       }
+      // a link to a transition is drawn against the transition's source
+      const frames = new Map<string | null, string | null>(
+        machine.transitions.map((t) => [t.id, t.source]),
+      );
+      for (const link of machine.links) {
+        if (!link.polyline.length && link.sourcePoint === null && link.targetPoint === null) {
+          continue;
+        }
+        const frame = frames.has(link.target) ? frames.get(link.target)! : link.target;
+        for (const endpoint of [link.source, frame]) {
+          if (geometry.has(endpoint) && !geometry.get(endpoint)) {
+            ctx.emit(
+              'link-geometry-endpoints',
+              `comment link geometry while the node ${repr(endpoint)} has none`,
+              link.elem,
+            );
+          }
+        }
+      }
+    }
+  },
+);
+
+declare(
+  'link-geometry-endpoints',
+  'CGML-6.7-6',
+  4,
+  WARNING,
+  'comment link geometry requires drawn ends: the comment and the subject node, or the ' +
+    'source node of the commented transition',
+);
+
+rule(
+  'link-geometry-ends',
+  'CGML-9.1-2',
+  4,
+  WARNING,
+  'a full-geometry document gives every comment link its ends',
+  (ctx) => {
+    if (ctx.doc.geometryMode !== 'full') {
+      return;
+    }
+    for (const machine of ctx.doc.machines) {
+      for (const link of machine.links) {
+        if (link.sourcePoint === null) {
+          ctx.emit(
+            'link-geometry-ends',
+            `comment link ${repr(link.id)} has no source point`,
+            link.elem,
+          );
+        }
+        if (link.targetPoint === null && !['dName', 'dData'].includes((link.pivot ?? '').trim())) {
+          ctx.emit(
+            'link-geometry-ends',
+            `comment link ${repr(link.id)} to ${repr(link.target)} has no target point`,
+            link.elem,
+          );
+        }
+      }
     }
   },
 );
@@ -694,10 +753,44 @@ rule(
         if (target === undefined) {
           continue;
         }
-        if (!(aspect(target, pivot) ?? '').includes(chunk)) {
+        if (edges.has(link.target) && pivot === 'dName') {
+          continue; // link-name-on-transition (8.5-4)
+        }
+        const text = aspect(target, pivot);
+        if (text === null) {
+          ctx.emit(
+            'chunk-substring',
+            `the subject ${repr(link.target)} of the comment link ${repr(link.id)} has no ${pivot} ` +
+              'to comment',
+            link.elem,
+          );
+        } else if (!text.includes(chunk)) {
           ctx.emit(
             'chunk-substring',
             `dChunk ${repr(chunk)} is not found in the ${pivot} of ${repr(link.target)}`,
+            link.elem,
+          );
+        }
+      }
+    }
+  },
+);
+
+rule(
+  'link-name-on-transition',
+  'CGML-8.5-4',
+  4,
+  ERROR,
+  'a comment link to a transition comments its label, not a name',
+  (ctx) => {
+    for (const machine of ctx.doc.machines) {
+      const edges = new Set<string | null>(machine.transitions.map((t) => t.id));
+      for (const link of machine.links) {
+        if (edges.has(link.target) && (link.pivot ?? '').trim() === 'dName') {
+          ctx.emit(
+            'link-name-on-transition',
+            `comment link ${repr(link.id)} names a fragment of the transition ${repr(link.target)}, ` +
+              'which has no name',
             link.elem,
           );
         }

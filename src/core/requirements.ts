@@ -132,6 +132,8 @@ export const REQUIREMENTS: Map<string, Req> = new Map([
   ['CGML-6.7-2', req(MUST, 'RWX', CORE, VALIDATOR)],
   ['CGML-6.7-3', req(MUST, 'RWX', CORE, VALIDATOR)],
   ['CGML-6.7-4', req(MUST, 'RWX', CORE, VALIDATOR)],
+  ['CGML-6.7-5', req(MAY, 'RW', CORE, INTEGRATION)],
+  ['CGML-6.7-6', req(MUST, 'RW', CORE, VALIDATOR)],
   // 6.8 Events, guards, behaviour
   ['CGML-6.8-1', req(MUST, 'RWX', CORE, VALIDATOR)],
   ['CGML-6.8-2', req(MUST, 'RW', CORE, VALIDATOR)],
@@ -196,6 +198,7 @@ export const REQUIREMENTS: Map<string, Req> = new Map([
   ['CGML-8.5-1', req(MAY, 'RW', EXT_COMPLETENESS, INTEGRATION)],
   ['CGML-8.5-2', req(MUST, 'RWX', EXT_COMPLETENESS, VALIDATOR)],
   ['CGML-8.5-3', req(MUST, 'X', EXT_COMPLETENESS, VALIDATOR)],
+  ['CGML-8.5-4', req(MUST, 'RWX', EXT_COMPLETENESS, VALIDATOR)],
   // 9.1 Full geometry
   ['CGML-9.1-1', req(MUST, 'RWX', EXT_DISPLAY, INTEGRATION)],
   ['CGML-9.1-1-1', req(MUST, 'RW', EXT_DISPLAY, INTEGRATION)],
@@ -207,7 +210,7 @@ export const REQUIREMENTS: Map<string, Req> = new Map([
   ['CGML-9.1-1-3-4', req(MUST, 'RWX', EXT_DISPLAY, VALIDATOR)],
   ['CGML-9.1-1-4', req(MAY, 'RW', EXT_DISPLAY, INTEGRATION)],
   ['CGML-9.1-1-5', req(MUST, 'RW', EXT_DISPLAY, INTEGRATION)],
-  ['CGML-9.1-2', req(MUST, 'W', EXT_DISPLAY, WRITE_ONLY)],
+  ['CGML-9.1-2', req(MUST, 'W', EXT_DISPLAY, VALIDATOR)],
   // 9.2 Color marking
   ['CGML-9.2-1', req(MAY, 'RW', EXT_DISPLAY, VALIDATOR)],
   ['CGML-9.2-2', req(MUST, 'RWX', EXT_DISPLAY, VALIDATOR)],

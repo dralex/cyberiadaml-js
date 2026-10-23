@@ -1,0 +1,41 @@
+cgml-canonical-dump 1
+format: "Cyberiada-GraphML-1.0"
+geometry-mode: none
+transition-order: actionFirst
+event-propagation: block
+meta:
+  param "standardVersion": "1.0"
+state-machine "G":
+  name: "Links"
+  comment "cTop" informal:
+    markup: "plain"
+    body: "The idle state waits; the working state runs."
+  vertex "init" initial:
+  state "n0":
+    name: "Idle"
+  comment "nMeta" formal:
+    name: "CGML_META"
+  state "p0":
+    name: "Working"
+    region "p0:":
+      comment "cIn" informal:
+        markup: "plain"
+        body: "Runs until Idle is requested."
+      state "r0":
+        name: "Run"
+        action entry:
+          do: "run()"
+      vertex "r0init" initial:
+  transition "init-n0#1": "init" -> "n0"
+  transition "n0-p0#1": "n0" -> "p0"
+    action event "START":
+  transition "p0-n0#1": "p0" -> "n0"
+    action event "STOP":
+  transition "r0init-r0#1": "r0init" -> "r0"
+  comment-link "cIn-n0#1": "cIn" -> "n0" pivot ""
+  comment-link "cTop-cIn#1": "cTop" -> "cIn" pivot "dData" chunk "until Idle"
+  comment-link "cTop-init#1": "cTop" -> "init" pivot ""
+  comment-link "cTop-n0#1": "cTop" -> "n0" pivot "dName" chunk "Idle"
+  comment-link "cTop-n0#2": "cTop" -> "n0" pivot "dName" chunk "Idle"
+  comment-link "cTop-p0#1": "cTop" -> "p0" pivot ""
+  comment-link "cTop-r0#1": "cTop" -> "r0" pivot "dData" chunk "run()"

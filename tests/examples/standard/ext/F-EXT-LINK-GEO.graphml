@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <data key="gFormat">Cyberiada-GraphML-1.0</data>
+  <key id="gFormat" for="graphml" attr.name="format" attr.type="string"/>
+  <key id="dName" for="graph" attr.name="name" attr.type="string"/>
+  <key id="dName" for="node" attr.name="name" attr.type="string"/>
+  <key id="dStateMachine" for="graph" attr.name="stateMachine"/>
+  <key id="dRegion" for="graph" attr.name="region"/>
+  <key id="dSubmachineState" for="node" attr.name="submachineState" attr.type="string"/>
+  <key id="dGeometry" for="graph" attr.name="geometry"/>
+  <key id="dGeometry" for="node" attr.name="geometry"/>
+  <key id="dGeometry" for="edge" attr.name="geometry"/>
+  <key id="dSourcePoint" for="edge" attr.name="sourcePoint"/>
+  <key id="dTargetPoint" for="edge" attr.name="targetPoint"/>
+  <key id="dLabelGeometry" for="edge" attr.name="labelGeometry"/>
+  <key id="dNote" for="node" attr.name="note" attr.type="string"/>
+  <key id="dVertex" for="node" attr.name="vertex" attr.type="string"/>
+  <key id="dData" for="node" attr.name="data" attr.type="string"/>
+  <key id="dData" for="edge" attr.name="data" attr.type="string"/>
+  <key id="dPivot" for="edge" attr.name="pivot" attr.type="string"/>
+  <key id="dChunk" for="edge" attr.name="chunk" attr.type="string"/>
+  <key id="dCollapsed" for="node" attr.name="collapsed"/>
+  <key id="dMarkup" for="node" attr.name="markup" attr.type="string"/>
+  <key id="dColor" for="node" attr.name="color" attr.type="string"/>
+  <key id="dColor" for="edge" attr.name="color" attr.type="string"/>
+  <key id="dFormalName" for="graph" attr.name="formalName" attr.type="string"/>
+  <key id="dFormalName" for="node" attr.name="formalName" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <data key="dStateMachine"/>
+    <data key="dName">Links</data>
+    <data key="dGeometry">
+      <rect x="0" y="0" width="600" height="400"/>
+    </data>
+    <node id="nMeta">
+      <data key="dNote">formal</data>
+      <data key="dName">CGML_META</data>
+      <data key="dData">standardVersion/ 1.0
+
+geometry/ full</data>
+      <data key="dGeometry">
+        <rect x="10" y="10" width="120" height="40"/>
+      </data>
+    </node>
+    <node id="init">
+      <data key="dVertex">initial</data>
+      <data key="dGeometry">
+        <point x="30" y="125"/>
+      </data>
+    </node>
+    <node id="a">
+      <data key="dName">A</data>
+      <data key="dGeometry">
+        <rect x="60" y="100" width="100" height="50"/>
+      </data>
+    </node>
+    <node id="b">
+      <data key="dName">B</data>
+      <data key="dData">entry/ run()</data>
+      <data key="dGeometry">
+        <rect x="360" y="100" width="140" height="50"/>
+      </data>
+    </node>
+    <node id="c">
+      <data key="dNote">informal</data>
+      <data key="dData">A note</data>
+      <data key="dGeometry">
+        <rect x="210" y="250" width="100" height="50"/>
+      </data>
+    </node>
+    <edge id="init-a" source="init" target="a">
+      <data key="dSourcePoint">
+        <point x="5" y="0"/>
+      </data>
+      <data key="dTargetPoint">
+        <point x="0" y="25"/>
+      </data>
+    </edge>
+    <edge id="a-b" source="a" target="b">
+      <data key="dData">GO [x &gt; 1]/ go()</data>
+      <data key="dSourcePoint">
+        <point x="100" y="25"/>
+      </data>
+      <data key="dTargetPoint">
+        <point x="0" y="25"/>
+      </data>
+    </edge>
+    <edge id="c-b" source="c" target="b">
+      <data key="dPivot"/>
+      <data key="dSourcePoint">
+        <point x="100" y="25"/>
+      </data>
+      <data key="dTargetPoint">
+        <point x="70" y="50"/>
+      </data>
+    </edge>
+    <edge id="c-a-b" source="c" target="a-b">
+      <data key="dPivot"/>
+      <data key="dSourcePoint">
+        <point x="50" y="0"/>
+      </data>
+      <data key="dTargetPoint">
+        <point x="200" y="25"/>
+      </data>
+    </edge>
+    <edge id="c-b#1" source="c" target="b">
+      <data key="dPivot">dData</data>
+      <data key="dChunk">run()</data>
+      <data key="dSourcePoint">
+        <point x="0" y="25"/>
+      </data>
+    </edge>
+    <edge id="c-a" source="c" target="a">
+      <data key="dPivot"/>
+      <data key="dGeometry">
+        <point x="-60" y="25"/>
+      </data>
+      <data key="dSourcePoint">
+        <point x="0" y="25"/>
+      </data>
+      <data key="dTargetPoint">
+        <point x="50" y="50"/>
+      </data>
+    </edge>
+    <edge id="c-a-b#1" source="c" target="a-b">
+      <data key="dPivot">dData</data>
+      <data key="dChunk">GO</data>
+      <data key="dSourcePoint">
+        <point x="30" y="0"/>
+      </data>
+    </edge>
+    <edge id="c-a-b#2" source="c" target="a-b">
+      <data key="dPivot">dData</data>
+      <data key="dChunk">x &gt; 1</data>
+      <data key="dSourcePoint">
+        <point x="50" y="0"/>
+      </data>
+    </edge>
+    <edge id="c-a-b#3" source="c" target="a-b">
+      <data key="dPivot">dData</data>
+      <data key="dChunk">go()</data>
+      <data key="dSourcePoint">
+        <point x="70" y="0"/>
+      </data>
+    </edge>
+  </graph>
+</graphml>

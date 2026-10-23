@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <data key="gFormat">Cyberiada-GraphML-1.0</data>
+  <key id="gFormat" for="graphml" attr.name="format" attr.type="string"/>
+  <key id="dName" for="graph" attr.name="name" attr.type="string"/>
+  <key id="dName" for="node" attr.name="name" attr.type="string"/>
+  <key id="dStateMachine" for="graph" attr.name="stateMachine"/>
+  <key id="dRegion" for="graph" attr.name="region"/>
+  <key id="dSubmachineState" for="node" attr.name="submachineState" attr.type="string"/>
+  <key id="dGeometry" for="graph" attr.name="geometry"/>
+  <key id="dGeometry" for="node" attr.name="geometry"/>
+  <key id="dGeometry" for="edge" attr.name="geometry"/>
+  <key id="dSourcePoint" for="edge" attr.name="sourcePoint"/>
+  <key id="dTargetPoint" for="edge" attr.name="targetPoint"/>
+  <key id="dLabelGeometry" for="edge" attr.name="labelGeometry"/>
+  <key id="dNote" for="node" attr.name="note" attr.type="string"/>
+  <key id="dVertex" for="node" attr.name="vertex" attr.type="string"/>
+  <key id="dData" for="node" attr.name="data" attr.type="string"/>
+  <key id="dData" for="edge" attr.name="data" attr.type="string"/>
+  <key id="dPivot" for="edge" attr.name="pivot" attr.type="string"/>
+  <key id="dChunk" for="edge" attr.name="chunk" attr.type="string"/>
+  <key id="dCollapsed" for="node" attr.name="collapsed"/>
+  <key id="dMarkup" for="node" attr.name="markup" attr.type="string"/>
+  <key id="dColor" for="node" attr.name="color" attr.type="string"/>
+  <key id="dColor" for="edge" attr.name="color" attr.type="string"/>
+  <key id="dFormalName" for="graph" attr.name="formalName" attr.type="string"/>
+  <key id="dFormalName" for="node" attr.name="formalName" attr.type="string"/>
+  <graph id="G" edgedefault="directed">
+    <data key="dStateMachine"/>
+    <data key="dName">Links</data>
+    <node id="nMeta">
+      <data key="dNote">formal</data>
+      <data key="dName">CGML_META</data>
+      <data key="dData">standardVersion/ 1.0</data>
+    </node>
+    <node id="init">
+      <data key="dVertex">initial</data>
+    </node>
+    <node id="n0">
+      <data key="dName">Idle</data>
+    </node>
+    <node id="p0">
+      <data key="dName">Working</data>
+      <graph id="p0:" edgedefault="directed">
+        <data key="dRegion"/>
+        <node id="r0init">
+          <data key="dVertex">initial</data>
+        </node>
+        <node id="r0">
+          <data key="dName">Run</data>
+          <data key="dData">entry/ run()</data>
+        </node>
+        <node id="cIn">
+          <data key="dNote">informal</data>
+          <data key="dData">Runs until Idle is requested.</data>
+        </node>
+      </graph>
+    </node>
+    <node id="cTop">
+      <data key="dNote">informal</data>
+      <data key="dData">The idle state waits; the working state runs.</data>
+    </node>
+    <edge id="init-n0#1" source="init" target="n0"/>
+    <edge id="n0-p0#1" source="n0" target="p0">
+      <data key="dData">START/</data>
+    </edge>
+    <edge id="r0init-r0#1" source="r0init" target="r0"/>
+    <edge id="p0-n0#1" source="p0" target="n0">
+      <data key="dData">STOP/</data>
+    </edge>
+    <edge id="cTop-n0#1" source="cTop" target="n0">
+      <data key="dPivot">dName</data>
+      <data key="dChunk">Idle</data>
+    </edge>
+    <edge id="cTop-n0#2" source="cTop" target="n0">
+      <data key="dPivot">dName</data>
+      <data key="dChunk">Idle</data>
+    </edge>
+    <edge id="cTop-r0#1" source="cTop" target="r0">
+      <data key="dPivot">dData</data>
+      <data key="dChunk">run()</data>
+    </edge>
+    <edge id="cTop-cIn#1" source="cTop" target="cIn">
+      <data key="dPivot">dData</data>
+      <data key="dChunk">until Idle</data>
+    </edge>
+    <edge id="cTop-init#1" source="cTop" target="init">
+      <data key="dPivot"/>
+    </edge>
+    <edge id="cTop-p0#1" source="cTop" target="p0">
+      <data key="dPivot"/>
+    </edge>
+    <edge id="cIn-n0#1" source="cIn" target="n0">
+      <data key="dPivot"/>
+    </edge>
+  </graph>
+</graphml>

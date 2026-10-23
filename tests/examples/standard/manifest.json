@@ -154,6 +154,25 @@
         "CGML-8.3-3"
       ]
     },
+    "ext/F-EXT-LINK-GEO": {
+      "profile": "EXT-COMPLETENESS",
+      "requirements": [
+        "CGML-6.7-1",
+        "CGML-6.7-2",
+        "CGML-6.7-3",
+        "CGML-6.7-5",
+        "CGML-6.7-6",
+        "CGML-8.5-1",
+        "CGML-8.5-2",
+        "CGML-8.5-4",
+        "CGML-9.1-1-1",
+        "CGML-9.1-1-2",
+        "CGML-9.1-1-3-2",
+        "CGML-9.1-1-3-3",
+        "CGML-9.1-1-3-4",
+        "CGML-9.1-2"
+      ]
+    },
     "ext/F-EXT-D": {
       "profile": "EXT-DISPLAY",
       "requirements": [
@@ -505,6 +524,44 @@
     },
     "negative/X-8.3-5-point-in-second-region": {
       "reject": "CGML-8.3-5"
+    },
+    "core/F-LINKS": {
+      "profile": "CORE",
+      "requirements": [
+        "CGML-6.6-1",
+        "CGML-6.7-1",
+        "CGML-6.7-2",
+        "CGML-6.7-3",
+        "CGML-6.7-4",
+        "CGML-6.7-5"
+      ]
+    },
+    "negative/X-6.7-2-other-machine": {
+      "reject": "CGML-6.7-2"
+    },
+    "negative/X-6.7-2-region-target": {
+      "reject": "CGML-6.7-2"
+    },
+    "negative/X-6.7-2-sm-target": {
+      "reject": "CGML-6.7-2"
+    },
+    "negative/X-6.7-3-chunk-not-in-data": {
+      "reject": "CGML-6.7-3"
+    },
+    "negative/X-6.7-3-data-on-vertex": {
+      "reject": "CGML-6.7-3"
+    },
+    "negative/X-6.7-3-empty-chunk": {
+      "reject": "CGML-6.7-3"
+    },
+    "negative/X-6.7-4-state-source": {
+      "reject": "CGML-6.7-4"
+    },
+    "negative/X-8.5-1-other-machine-transition": {
+      "reject": "CGML-6.7-2"
+    },
+    "negative/X-8.5-4-name-on-transition": {
+      "reject": "CGML-8.5-4"
     }
   },
   "twins": [

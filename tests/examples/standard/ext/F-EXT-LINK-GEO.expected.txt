@@ -1,0 +1,54 @@
+cgml-canonical-dump 1
+format: "Cyberiada-GraphML-1.0"
+geometry-mode: full
+transition-order: actionFirst
+event-propagation: block
+meta:
+  param "standardVersion": "1.0"
+  param "geometry": "full"
+state-machine "G":
+  name: "Links"
+  geometry: rect 0.00 0.00 600.00 400.00
+  state "a":
+    name: "A"
+    geometry: rect 60.00 100.00 100.00 50.00
+  state "b":
+    name: "B"
+    action entry:
+      do: "run()"
+    geometry: rect 360.00 100.00 140.00 50.00
+  comment "c" informal:
+    markup: "plain"
+    body: "A note"
+    geometry: rect 210.00 250.00 100.00 50.00
+  vertex "init" initial:
+    geometry: point 30.00 125.00
+  comment "nMeta" formal:
+    name: "CGML_META"
+    geometry: rect 10.00 10.00 120.00 40.00
+  transition "a-b": "a" -> "b"
+    action event "GO" guard "x > 1":
+      do: "go()"
+    source-point: point 100.00 25.00
+    target-point: point 0.00 25.00
+  transition "init-a": "init" -> "a"
+    source-point: point 5.00 0.00
+    target-point: point 0.00 25.00
+  comment-link "c-a": "c" -> "a" pivot ""
+    polyline: point -60.00 25.00
+    source-point: point 0.00 25.00
+    target-point: point 50.00 50.00
+  comment-link "c-a-b": "c" -> "a-b" pivot ""
+    source-point: point 50.00 0.00
+    target-point: point 200.00 25.00
+  comment-link "c-a-b#1": "c" -> "a-b" pivot "dData" chunk "GO"
+    source-point: point 30.00 0.00
+  comment-link "c-a-b#2": "c" -> "a-b" pivot "dData" chunk "x > 1"
+    source-point: point 50.00 0.00
+  comment-link "c-a-b#3": "c" -> "a-b" pivot "dData" chunk "go()"
+    source-point: point 70.00 0.00
+  comment-link "c-b": "c" -> "b" pivot ""
+    source-point: point 100.00 25.00
+    target-point: point 70.00 50.00
+  comment-link "c-b#1": "c" -> "b" pivot "dData" chunk "run()"
+    source-point: point 0.00 25.00
