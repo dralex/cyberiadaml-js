@@ -562,6 +562,129 @@
     },
     "negative/X-8.5-4-name-on-transition": {
       "reject": "CGML-8.5-4"
+    },
+    "fa/F-FA-EXAMPLE": {
+      "profile": "EXT-FA",
+      "requirements": [
+        "CGML-FA-5-1",
+        "CGML-FA-5-2",
+        "CGML-FA-5-3",
+        "CGML-FA-3-1",
+        "CGML-FA-3.1.1-3",
+        "CGML-FA-3.2-1",
+        "CGML-FA-3.2-2",
+        "CGML-FA-3.3-1",
+        "CGML-FA-3.3-2",
+        "CGML-FA-3.4-1",
+        "CGML-FA-3.4-3"
+      ]
+    },
+    "fa/F-FA-MEALY": {
+      "profile": "EXT-FA",
+      "requirements": [
+        "CGML-FA-5-1",
+        "CGML-FA-3.3-2",
+        "CGML-FA-3.4-1",
+        "CGML-FA-3.4-2",
+        "CGML-FA-3.4-3"
+      ]
+    },
+    "fa/F-FA-MOORE": {
+      "profile": "EXT-FA",
+      "requirements": [
+        "CGML-FA-5-1",
+        "CGML-FA-3.1-1",
+        "CGML-FA-3.1.1-3",
+        "CGML-FA-3.3-2"
+      ]
+    },
+    "fa/F-FA-ALPHABET": {
+      "profile": "EXT-FA",
+      "requirements": [
+        "CGML-FA-5-1",
+        "CGML-FA-3.4-3",
+        "CGML-FA-4-1",
+        "CGML-FA-4-2",
+        "CGML-FA-4-3"
+      ]
+    },
+    "fa/F-FA-NESTED": {
+      "profile": "EXT-FA",
+      "requirements": [
+        "CGML-FA-5-1",
+        "CGML-FA-3.1.1-1",
+        "CGML-FA-3.1.1-2",
+        "CGML-FA-3.1.1-3",
+        "CGML-FA-3.2-1",
+        "CGML-FA-3.3-1",
+        "CGML-FA-3.3-2"
+      ]
+    },
+    "negative/X-FA-5-2-two-machines": {
+      "reject": "CGML-FA-5-2"
+    },
+    "negative/X-FA-5-3-propagate": {
+      "reject": "CGML-FA-5-3"
+    },
+    "negative/X-FA-3-1-choice": {
+      "reject": "CGML-FA-3-1"
+    },
+    "negative/X-FA-3-1-collapsed": {
+      "reject": "CGML-FA-3-1"
+    },
+    "negative/X-FA-3.1-1-exit-action": {
+      "reject": "CGML-FA-3.1-1"
+    },
+    "negative/X-FA-3.1-1-two-line-entry": {
+      "reject": "CGML-FA-3.1-1"
+    },
+    "negative/X-FA-3.1.1-1-two-regions": {
+      "reject": "CGML-FA-3.1.1-1"
+    },
+    "negative/X-FA-3.1.1-2-composite-no-initial": {
+      "reject": "CGML-FA-3.1.1-2"
+    },
+    "negative/X-FA-3.1.1-3-two-transitions-same-symbol": {
+      "reject": "CGML-FA-3.1.1-3"
+    },
+    "negative/X-FA-3.2-1-no-initial": {
+      "reject": "CGML-FA-3.2-1"
+    },
+    "negative/X-FA-3.2-2-initial-with-event": {
+      "reject": "CGML-FA-3.2-2"
+    },
+    "negative/X-FA-3.3-1-nested-final": {
+      "reject": "CGML-FA-3.3-1"
+    },
+    "negative/X-FA-3.3-2-eof-to-state": {
+      "reject": "CGML-FA-3.3-2"
+    },
+    "negative/X-FA-3.3-2-symbol-to-final": {
+      "reject": "CGML-FA-3.3-2"
+    },
+    "negative/X-FA-3.4-1-guard": {
+      "reject": "CGML-FA-3.4-1"
+    },
+    "negative/X-FA-3.4-1-two-events": {
+      "reject": "CGML-FA-3.4-1"
+    },
+    "negative/X-FA-3.4-1-empty-event": {
+      "reject": "CGML-FA-3.4-1"
+    },
+    "negative/X-FA-3.4-2-two-line-action": {
+      "reject": "CGML-FA-3.4-2"
+    },
+    "negative/X-FA-3.4-3-reserved-symbol": {
+      "reject": "CGML-FA-3.4-3"
+    },
+    "negative/X-FA-4-1-two-input-alphabets": {
+      "reject": "CGML-FA-4-1"
+    },
+    "negative/X-FA-4-2-star-in-regex": {
+      "reject": "CGML-FA-4-2"
+    },
+    "negative/X-FA-4-3-symbol-not-in-alphabet": {
+      "reject": "CGML-FA-4-3"
     }
   },
   "twins": [

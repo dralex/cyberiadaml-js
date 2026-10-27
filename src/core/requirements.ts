@@ -28,6 +28,7 @@ export const CORE = 'CORE';
 export const EXT_COMPLETENESS = 'EXT-COMPLETENESS';
 export const EXT_DISPLAY = 'EXT-DISPLAY';
 export const EXT_PLATFORM = 'EXT-PLATFORM';
+export const EXT_FA = 'EXT-FA';
 
 // which part of the suite can check the requirement: a document (validator), the
 // implementation behaviour (integration), produced documents alone (write-only)
@@ -234,6 +235,28 @@ export const REQUIREMENTS: Map<string, Req> = new Map([
   ['CGML-appendix-A-1', req(MUST, 'RWX', CORE, VALIDATOR)],
   // Appendix Standard key declarations
   ['CGML-appendix-B-1', req(MUST, 'RWX', CORE, VALIDATOR)],
+  // EXT-FA: the finite automaton extension (testing spec 2.9), the clause numbers are
+  // those of docs/FA-extension.md
+  ['CGML-FA-5-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-5-2', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-5-3', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.1-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.1.1-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.1.1-2', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.1.1-3', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.2-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.2-2', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.3-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.3-2', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.4-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.4-2', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-3.4-3', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-4-1', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-4-2', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-4-3', req(MUST, 'RWX', EXT_FA, VALIDATOR)],
+  ['CGML-FA-4-4', req(MAY, 'RW', EXT_FA, INTEGRATION)],
+  ['CGML-FA-2.4-1', req(MAY, 'X', EXT_FA, INTEGRATION)],
 ]);
 
 // the informative Lapki dialect (CyberiadaML-GraphML-1.0-LAPKI-DIALECT.md):

@@ -20,6 +20,7 @@
  *
  * ----------------------------------------------------------------------------- */
 
+import './checks_fa';
 import './checks_l3';
 import './checks_l4';
 import * as dialect from './dialect';

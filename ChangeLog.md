@@ -3,6 +3,12 @@
 ## Version 2.1.0 (unreleased)
 
 Added:
+- the EXT-FA rules of the core (compat-tests testing spec 1.11, 2.9): a document with `type/ fa`
+  in its metadata is a deterministic finite automaton diagram and `core.read({strict: true})`
+  and `core.write` refuse it when it breaks the `CGML-FA-*` requirements; `core/alphabet` reads
+  the `FA_INPUT`/`FA_OUTPUT` alphabet comments and their restricted regular expressions; the
+  standard examples re-synced at compat-tests 374e6d0 (the `fa/` examples and the `X-FA-*`
+  negatives).
 - the 2.1 fields for the elements of the extension profiles: `entryPoints` and `exitPoints`,
   the `submachine` reference, `collapsed`, `formalName` of machines, states, regions, vertices
   and comments, the `markup` and `color` of comments, vertex colours, a label rect in

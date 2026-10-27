@@ -29,6 +29,7 @@ import { XElement } from './xml';
 
 export const META_NAME = 'CGML_META';
 export const COMPONENT_NAME = 'CGML_COMPONENT';
+export const FA_TYPE = 'fa'; // the type parameter of an FA document
 
 export const GEOMETRY_MODES = ['none', 'short', 'full'];
 
@@ -254,6 +255,7 @@ export class Document {
   metaParams: Param[] = [];
   metaErrors: Array<[number, string]> = [];
   geometryMode = 'none';
+  isFa = false; // the metadata parameter type is fa
   // the reader's additions: the format label, the findings, the top-level graphs the dialect
   // pass took out (D-9) and the ids it gave (D-7f, D-7a) -> the ids as written
   label = 'Cyberiada-GraphML-1.0';
@@ -573,5 +575,6 @@ export function build(root: XElement): Document {
   findMeta(document);
   const mode = document.param('geometry');
   document.geometryMode = mode !== null && GEOMETRY_MODES.includes(mode) ? mode : 'none';
+  document.isFa = (document.param('type') ?? '').trim() === FA_TYPE;
   return document;
 }

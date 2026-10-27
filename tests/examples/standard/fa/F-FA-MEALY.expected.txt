@@ -1,0 +1,42 @@
+cgml-canonical-dump 1
+format: "Cyberiada-GraphML-1.0"
+geometry-mode: full
+transition-order: actionFirst
+event-propagation: block
+meta:
+  param "standardVersion": "1.0"
+  param "cyberiadaEditorView": "2.59374 -583 -782"
+  param "eventPropagation": "block"
+  param "geometry": "full"
+  param "transitionOrder": "actionFirst"
+  param "type": "fa"
+state-machine "G0":
+  name: "Новая машина состояний"
+  vertex "n0" initial:
+    geometry: point 25.00 0.00
+  state "n1":
+    name: "q0"
+    geometry: rect 75.00 -25.00 50.00 50.00
+  vertex "n4" final:
+    geometry: point 200.00 0.00
+  comment "nMeta" formal:
+    name: "CGML_META"
+  transition "n0-n1": "n0" -> "n1"
+  transition "n1-n1": "n1" -> "n1"
+    action event "1":
+      do: "0"
+    polyline: point 0.00 100.00 point 50.00 100.00
+    source-point: point 2.93 47.07
+    target-point: point 47.07 47.07
+    label-geometry: rect -1.89 103.60 56.12 27.00
+  transition "n1-n1#0": "n1" -> "n1"
+    action event "0":
+      do: "1"
+    polyline: point 50.00 -50.00 point 0.00 -50.00
+    source-point: point 50.00 25.00
+    target-point: point 2.93 2.93
+    label-geometry: rect -1.92 -81.37 56.12 27.00
+  transition "n1-n4": "n1" -> "n4"
+    action event "EOF":
+    target-point: point -10.00 0.00
+    label-geometry: rect 60.21 11.50 36.88 27.00

@@ -1,0 +1,36 @@
+cgml-canonical-dump 1
+format: "Cyberiada-GraphML-1.0"
+geometry-mode: none
+transition-order: actionFirst
+event-propagation: block
+meta:
+  param "standardVersion": "1.0"
+  param "type": "fa"
+state-machine "G":
+  name: "Nested automaton"
+  state "c0":
+    name: "C"
+    region "c0:":
+      vertex "c0init" initial:
+      state "c1":
+        name: "c1"
+      state "c2":
+        name: "c2"
+  vertex "fin" final:
+  vertex "init" initial:
+  comment "nMeta" formal:
+    name: "CGML_META"
+  state "q0":
+    name: "q0"
+  transition "c0-fin": "c0" -> "fin"
+    action event "EOF":
+  transition "c0-q0": "c0" -> "q0"
+    action event "b":
+  transition "c0init-c1": "c0init" -> "c1"
+  transition "c1-c2": "c1" -> "c2"
+    action event "b":
+  transition "c2-c1": "c2" -> "c1"
+    action event "a":
+  transition "init-q0": "init" -> "q0"
+  transition "q0-c0": "q0" -> "c0"
+    action event "a":

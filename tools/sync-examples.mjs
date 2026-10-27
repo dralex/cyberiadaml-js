@@ -31,7 +31,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EXAMPLES = join(ROOT, 'tests', 'examples');
-const STANDARD_DIRS = ['core', 'ext', 'field', 'geometry', 'negative', 'standard'];
+const STANDARD_DIRS = ['core', 'ext', 'fa', 'field', 'geometry', 'negative', 'standard'];
 
 const compat = process.argv[2] ?? join(homedir(), 'sources', 'cyberiadaml-compat-tests');
 const fixtures = join(compat, 'fixtures');

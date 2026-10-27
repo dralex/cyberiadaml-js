@@ -1,0 +1,31 @@
+cgml-canonical-dump 1
+format: "Cyberiada-GraphML-1.0"
+geometry-mode: none
+transition-order: actionFirst
+event-propagation: block
+meta:
+  param "standardVersion": "1.0"
+  param "type": "fa"
+state-machine "G":
+  name: "Inverter with alphabets"
+  vertex "fin" final:
+  vertex "init" initial:
+  comment "nInput" formal:
+    name: "FA_INPUT"
+    body: "0\n1"
+  comment "nMeta" formal:
+    name: "CGML_META"
+  comment "nOutput" formal:
+    name: "FA_OUTPUT_RE"
+    body: "[0-1]\n(START|STOP){1,2}\n\\-\\-"
+  state "q0":
+    name: "q0"
+  transition "init-q0": "init" -> "q0"
+  transition "q0-fin": "q0" -> "fin"
+    action event "EOF":
+  transition "q0-q0": "q0" -> "q0"
+    action event "0":
+      do: "1"
+  transition "q0-q0#2": "q0" -> "q0"
+    action event "1":
+      do: "0"

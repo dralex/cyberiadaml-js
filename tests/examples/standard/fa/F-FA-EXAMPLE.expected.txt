@@ -1,0 +1,68 @@
+cgml-canonical-dump 1
+format: "Cyberiada-GraphML-1.0"
+geometry-mode: full
+transition-order: actionFirst
+event-propagation: block
+meta:
+  param "standardVersion": "1.0"
+  param "cyberiadaEditorView": "2.59374 -540 -648"
+  param "eventPropagation": "block"
+  param "geometry": "full"
+  param "transitionOrder": "actionFirst"
+  param "type": "fa"
+state-machine "G0":
+  name: "Новая машина состояний"
+  vertex "n0" initial:
+    geometry: point 0.00 0.00
+  state "n1":
+    name: "q0"
+    geometry: rect 75.00 -25.00 50.00 50.00
+  state "n2":
+    name: "q1"
+    geometry: rect 200.00 -100.00 50.00 50.00
+  state "n3":
+    name: "q2"
+    geometry: rect 200.00 50.00 50.00 50.00
+  vertex "n4" final:
+    geometry: point 325.00 -25.00
+  comment "nMeta" formal:
+    name: "CGML_META"
+  transition "n0-n1": "n0" -> "n1"
+  transition "n1-n2": "n1" -> "n2"
+    action event "0":
+    polyline: point 25.00 -50.00
+    target-point: point 0.00 25.00
+    label-geometry: rect 66.19 -63.50 17.62 27.00
+  transition "n1-n3": "n1" -> "n3"
+    action event "1":
+    polyline: point 25.00 100.00
+    source-point: point 25.00 50.00
+    target-point: point 0.00 25.00
+    label-geometry: rect 66.19 86.50 17.62 27.00
+  transition "n2-n2": "n2" -> "n2"
+    action event "0":
+    polyline: point 25.00 -50.00 point 100.00 -50.00 point 100.00 25.00
+    source-point: point 25.00 0.00
+    target-point: point 50.00 25.00
+    label-geometry: rect 16.41 -37.25 17.62 27.00
+  transition "n2-n3": "n2" -> "n3"
+    action event "1":
+    polyline: point 0.00 100.00
+    source-point: point 25.00 50.00
+    target-point: point 25.00 0.00
+    label-geometry: rect -8.12 87.89 17.62 27.00
+  transition "n2-n4": "n2" -> "n4"
+    action event "EOF":
+    target-point: point -8.80 -4.74
+    label-geometry: rect 64.29 41.60 36.88 27.00
+  transition "n3-n2": "n3" -> "n2"
+    action event "0":
+    polyline: point 50.00 -50.00
+    target-point: point 25.00 50.00
+    label-geometry: rect 42.54 -60.79 17.62 27.00
+  transition "n3-n3": "n3" -> "n3"
+    action event "1":
+    polyline: point 25.00 100.00 point 100.00 100.00 point 100.00 25.00
+    source-point: point 25.00 50.00
+    target-point: point 50.00 25.00
+    label-geometry: rect 15.90 61.28 17.62 27.00
